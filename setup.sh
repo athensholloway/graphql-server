@@ -2,8 +2,7 @@
 #https://babeljs.io/docs/en/babel-preset-typescript
 #https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
 #https://www.npmjs.com/package/webpack-node-externals
-#https://dev.to/riversun/how-to-run-webpack-dev-server-on-express-5ei9
-npm install -D babel-loader @babel/core @babel/preset-env webpack webpack-cli webpack-node-externals webpack-dev-middleware webpack-hot-middleware clean-webpack-plugin @babel/preset-typescript @babel/plugin-proposal-class-properties
+npm install -D babel-loader @babel/core @babel/preset-env webpack webpack-cli webpack-node-externals clean-webpack-plugin @babel/preset-typescript @babel/plugin-proposal-class-properties
 
 #https://www.apollographql.com/docs/apollo-server/v1/example/
 #https://www.npmjs.com/package/cors
