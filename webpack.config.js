@@ -6,16 +6,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: "development",
     devtool: 'inline-source-map',
-    entry: ['webpack/hot/poll?1000', "./src/index.ts"],
+    entry: ["./src/index.ts"],
     target: "node",
-    externals: [nodeExternals({
-        whitelist: ['webpack/hot/poll?1000']
-      })],
+    externals: [nodeExternals()],
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin()
     ],
-    watch: true,
     module: {
         rules: [
         {
