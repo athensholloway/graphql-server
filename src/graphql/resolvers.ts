@@ -1,6 +1,8 @@
 import { RegisterUserService } from "../api/RegisterUser"
+import { LoginService } from "../api/Login"
 
 const registerUserService = new RegisterUserService();
+const loginService = new LoginService();
 
 // Some fake data
 const books = [
@@ -20,6 +22,9 @@ const resolvers = {
     Mutation: {
         register: async (parent, {username, password}, ctx, info) => {
             return registerUserService.registerUser(username, password);
+        },
+        login: async (parent, {username, password}, ctx, info) => {
+            return loginService.login(username, password);
         }
     }
 };

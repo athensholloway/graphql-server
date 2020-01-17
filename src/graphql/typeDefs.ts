@@ -6,6 +6,11 @@ type Query { books: [Book] }
 type Book { title: String, author: String }
 type Mutation {
     register(username: String!, password: String!): User!
+   login(username: String!, password: String!): LoginResponse!
+}
+type LoginResponse {
+    token: String
+    user: User
 }
 type User {
     id: ID!
