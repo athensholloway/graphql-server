@@ -1,4 +1,4 @@
-import * as bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 import * as jwt from "jsonwebtoken";
 import LoginResult from "../model/LoginResult";
 import User from "../model/User";
@@ -23,7 +23,7 @@ export class LoginService implements Login {
         }
         
         const user: User = {id: 1,username: username};
-        const jwtSecret = process.env.JWT_SECRET;
+        const jwtSecret = process.env.JWT_SECRET as string;
         const token = jwt.sign(
             user, 
             jwtSecret,

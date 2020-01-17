@@ -1,7 +1,7 @@
-import * as express from "express";
-import * as bodyParser from "body-parser";
-import * as cors from "cors";
-import * as env from "dotenv";
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import env from "dotenv";
 import server from "./graphql/server"
 
 env.config();

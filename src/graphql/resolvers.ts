@@ -1,5 +1,7 @@
+import { IResolvers } from "graphql-tools";
 import { RegisterUserService } from "../api/RegisterUser"
 import { LoginService } from "../api/Login"
+import User from "../model/User";
 
 const registerUserService = new RegisterUserService();
 const loginService = new LoginService();
@@ -16,14 +18,14 @@ const books = [
     }
 ];
 
-const authenticateUser = (user) => {
+const authenticateUser = (user: User) => {
     if (!user) {
         throw new Error('Not Authenticated')
     }
 };
 
 // The resolvers
-const resolvers = {
+const resolvers: IResolvers = {
     Query: { 
         books: (parent, args, { user }) => {
             authenticateUser(user);
