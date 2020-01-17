@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "node ./dist/server.js",
-    "prod-build": "webpack --mode production"
+    "prod-build": "webpack --mode production",
+    "test": "jest"
   },
   "author": "Athens Holloway",
   "license": "ISC",
@@ -16,8 +17,12 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.5",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
