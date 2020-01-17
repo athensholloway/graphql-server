@@ -1,3 +1,7 @@
+import { RegisterUserService } from "../api/RegisterUser"
+
+const registerUserService = new RegisterUserService();
+
 // Some fake data
 const books = [
     {
@@ -13,6 +17,11 @@ const books = [
 // The resolvers
 const resolvers = {
     Query: { books: () => books },
+    Mutation: {
+        register: async (parent, {username, password}, ctx, info) => {
+            return registerUserService.registerUser(username, password);
+        }
+    }
 };
 
 export default resolvers;

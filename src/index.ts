@@ -15,5 +15,5 @@ app.use(cors());
 server.applyMiddleware({ app });
 
 app.listen({port}, () => {
-  console.log(`🚀  ${process.env.NODE_ENV} server ready at http://localhost:${port}$/graphql`);
+  console.log(`🚀  ${process.env.NODE_ENV} server ready at http://localhost:${port}/graphql`);
 });
