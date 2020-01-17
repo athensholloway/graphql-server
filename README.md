@@ -11,3 +11,4 @@
 - https://www.prisma.io/tutorials/authentication-in-apollo-server-ct21
 - https://github.com/Microsoft/TypeScript-Babel-Starter#readme
 - https://www.typescriptlang.org/docs/handbook/compiler-options.html
+- https://eslint.org/docs/user-guide/getting-started
