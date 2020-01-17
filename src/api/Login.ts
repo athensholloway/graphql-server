@@ -4,6 +4,7 @@ import LoginResult from "../model/LoginResult";
 import User from "../model/User";
 import UserMap from "./UserMap"
 
+
 export interface Login {
     login(username: string, password: string ): Promise<LoginResult>;
 }
@@ -22,9 +23,10 @@ export class LoginService implements Login {
         }
         
         const user: User = {id: 1,username: username};
+        const jwtSecret = process.env.JWT_SECRET;
         const token = jwt.sign(
             user, 
-            'my-secret-from-env-file-in-prod',
+            jwtSecret,
             {
                 expiresIn: '30d', // token will expire in 30days
             }
