@@ -16,9 +16,20 @@ const books = [
     }
 ];
 
+const authenticateUser = (user) => {
+    if (!user) {
+        throw new Error('Not Authenticated')
+    }
+};
+
 // The resolvers
 const resolvers = {
-    Query: { books: () => books },
+    Query: { 
+        books: (parent, args, { user }) => {
+            authenticateUser(user);
+            return books;
+        }
+    },
     Mutation: {
         register: async (parent, {username, password}, ctx, info) => {
             return registerUserService.registerUser(username, password);
