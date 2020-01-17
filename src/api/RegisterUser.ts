@@ -1,5 +1,5 @@
-import User from "../model/User";
 import * as bcrypt from "bcryptjs";
+import User from "../model/User";
 import UserMap from "./UserMap"
 
 export interface RegisterUser {
