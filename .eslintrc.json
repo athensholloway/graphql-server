@@ -19,6 +19,10 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "quotes": ["error", "double"]
+        "quotes": ["error", "double"],
+        "indent": ["error", 4],
+        "no-unused-vars": ["error", {"vars": "all", "args": "after-used"}],
+        "import/no-unresolved": "off",
+        "import/extensions": ["error", "never"]
     }
 }

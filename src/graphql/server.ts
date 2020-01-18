@@ -5,19 +5,17 @@ import { AuthenticateUserService } from "../api/AuthenticateUser";
 
 const authenticateUserService = new AuthenticateUserService();
 
-const server = new ApolloServer({ 
-    typeDefs, 
+const server = new ApolloServer({
+    typeDefs,
     resolvers,
     context: ({ req }) => {
-        const tokenWithBearer = req.headers.authorization || ''
-        const token = tokenWithBearer.split(' ')[1];
+        const tokenWithBearer = req.headers.authorization || "";
+        const token = tokenWithBearer.split(" ")[1];
         const user = authenticateUserService.authenticateUser(token);
-        const context = {
-            user: user
-        };
+        const context = { user };
 
         return context;
-    }
+    },
 });
 
 export default server;

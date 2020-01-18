@@ -1,45 +1,44 @@
+// eslint-disable-next-line no-unused-vars
 import { IResolvers } from "graphql-tools";
-import { RegisterUserService } from "../api/RegisterUser"
-import { LoginService } from "../api/Login"
+// eslint-disable-next-line no-unused-vars
+import { RegisterUserService, RegisterUser } from "../api/RegisterUser";
+// eslint-disable-next-line no-unused-vars
+import { LoginService, Login } from "../api/Login";
+// eslint-disable-next-line no-unused-vars
 import User from "../model/User";
 
-const registerUserService = new RegisterUserService();
-const loginService = new LoginService();
+const registerUser: RegisterUser = new RegisterUserService();
+const login: Login = new LoginService();
 
 // Some fake data
 const books = [
     {
         title: "Harry Potter and the Sorcerer's stone",
-        author: 'J.K. Rowling',
+        author: "J.K. Rowling",
     },
     {
-        title: 'Jurassic Park',
-        author: 'Michael Crichton',
-    }
+        title: "Jurassic Park",
+        author: "Michael Crichton",
+    },
 ];
 
 const authenticateUser = (user: User) => {
     if (!user) {
-        throw new Error('Not Authenticated')
+        throw new Error("Not Authenticated");
     }
 };
 
-// The resolvers
 const resolvers: IResolvers = {
-    Query: { 
+    Query: {
         books: (parent, args, { user }) => {
             authenticateUser(user);
             return books;
-        }
+        },
     },
     Mutation: {
-        register: async (parent, {username, password}, ctx, info) => {
-            return registerUserService.registerUser(username, password);
-        },
-        login: async (parent, {username, password}, ctx, info) => {
-            return loginService.login(username, password);
-        }
-    }
+        register: (_, { username, password }) => registerUser.registerUser(username, password),
+        login: (_, { username, password }) => login.login(username, password),
+    },
 };
 
 export default resolvers;

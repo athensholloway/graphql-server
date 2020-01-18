@@ -1,6 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import User from "./User";
 
-export default interface LoginResult {
+interface LoginResult {
     token: string;
     user: User;
 }
+
+// eslint-disable-next-line no-undef
+export default LoginResult;
