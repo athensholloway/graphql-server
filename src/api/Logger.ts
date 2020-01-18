@@ -1,19 +1,26 @@
-import winston from "winston";
+import { createLogger, format, transports } from "winston";
 
+const { combine, timestamp, prettyPrint } = format;
+const loggerFormat = combine(
+    timestamp(),
+    prettyPrint(),
+);
 const systemId: string = process.env.SYSTEM_ID as string;
-const winstonLogger = winston.createLogger({
+const winstonLogger = createLogger({
     level: process.env.LOGGING_LEVEL,
-    format: winston.format.json(),
+    format: loggerFormat,
     defaultMeta: { service: systemId },
     transports: [
-        new winston.transports.File({ filename: "error.log", level: "error" }),
-        new winston.transports.File({ filename: "combined.log" }),
+        new transports.File({ filename: "logs/error.log", level: "error" }),
+        new transports.File({ filename: "logs/server.log" }),
     ],
 });
 
-if (process.env.NODE_ENV !== "production") {
-    winstonLogger.add(new winston.transports.Console({
-        format: winston.format.json(),
+const isDevelopmentMode = process.env.NODE_ENV === "development";
+
+if (isDevelopmentMode) {
+    winstonLogger.add(new transports.Console({
+        format: loggerFormat,
     }));
 }
 
@@ -26,7 +33,7 @@ export interface Logger {
 
 class WinstonAdapter implements Logger {
     debug = (message: string): void => {
-        winstonLogger.log({ level: "info", message });
+        winstonLogger.log({ level: "debug", message });
     }
 
     info = (message: string): void => {
