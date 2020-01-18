@@ -1,12 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import env from "dotenv";
+import "./config";
 import server from "./graphql/server";
 // eslint-disable-next-line no-unused-vars
 import { Logger, newLogger } from "./api/Logger";
 
-env.config();
+
 const logger: Logger = newLogger();
 
 const app = express();
