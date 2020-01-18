@@ -1,5 +1,6 @@
 module.exports = {
     transform: {
-      '^.+\\.ts?$': 'ts-jest',
-    }
-  };
+        "^.+\\.ts?$": "ts-jest",
+    },
+    collectCoverageFrom: ["src/**/*.ts*"],
+};
