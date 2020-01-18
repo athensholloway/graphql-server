@@ -1,4 +1,4 @@
-import { gql} from "apollo-server-express";
+import { gql } from "apollo-server-express";
 
 // The GraphQL schema in string form
 const typeDefs = gql`
