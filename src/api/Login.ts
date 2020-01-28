@@ -3,7 +3,7 @@ import * as jwt from "jsonwebtoken";
 // eslint-disable-next-line no-unused-vars
 import LoginResult from "../model/LoginResult";
 // eslint-disable-next-line no-unused-vars
-import User from "../model/User";
+import { User } from "../model/User";
 import UserMap from "./UserMap";
 
 
@@ -12,8 +12,8 @@ export interface Login {
 }
 
 export class LoginService implements Login {
-        login = async (username: string, password: string): Promise<LoginResult> => {
-            const hashedPassword = UserMap.get(username);
+        login = async (email: string, password: string): Promise<LoginResult> => {
+            const hashedPassword = UserMap.get(email);
             let passwordMatch = false;
 
             if (hashedPassword) {
@@ -24,7 +24,12 @@ export class LoginService implements Login {
                 throw new Error("Invalid Login");
             }
 
-            const user: User = { id: 1, username };
+            const user: User = {
+                id: 1,
+                email,
+                firstName: null,
+                lastName: null,
+            };
             const jwtSecret = process.env.JWT_SECRET as string;
             const jwtExpiration = process.env.JWT_EXPIRATION as string;
             const token = jwt.sign(

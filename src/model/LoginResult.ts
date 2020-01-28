@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import User from "./User";
+import { User } from "./User";
 
 interface LoginResult {
     token: string;

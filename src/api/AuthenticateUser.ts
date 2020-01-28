@@ -2,7 +2,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 // eslint-disable-next-line no-unused-vars
-import User from "../model/User";
+import { User } from "../model/User";
 
 export interface AuthenticateUser {
     authenticateUser(token: string): User | null;

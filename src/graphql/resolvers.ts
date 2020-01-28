@@ -5,7 +5,7 @@ import { RegisterUserService, RegisterUser } from "../api/RegisterUser";
 // eslint-disable-next-line no-unused-vars
 import { LoginService, Login } from "../api/Login";
 // eslint-disable-next-line no-unused-vars
-import User from "../model/User";
+import { User } from "../model/User";
 
 const registerUser: RegisterUser = new RegisterUserService();
 const login: Login = new LoginService();

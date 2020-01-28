@@ -1,7 +1,10 @@
-interface User {
+export interface User {
     id: number;
-    username: string;
+    email: string;
+    firstName: string | null;
+    lastName: string | null;
 }
 
-// eslint-disable-next-line no-undef
-export default User;
+export interface UserQuery {
+    findAllUsers(): Promise<User>;
+}
